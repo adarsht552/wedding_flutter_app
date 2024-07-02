@@ -1,0 +1,16 @@
+com.example.wedding.app-jetified-window-1.0.0-beta04-0 C:\Users\Deepa\.gradle\caches\transforms-3\328534138551b73ddb7d6c43314dd50e\transformed\jetified-window-1.0.0-beta04\res
+com.example.wedding.app-core-1.6.0-1 C:\Users\Deepa\.gradle\caches\transforms-3\361f88f5d820b22706ca97b23e1b7e61\transformed\core-1.6.0\res
+com.example.wedding.app-jetified-firebase-common-21.0.0-2 C:\Users\Deepa\.gradle\caches\transforms-3\5046cf2b25e63dbd8f04040a446fee0d\transformed\jetified-firebase-common-21.0.0\res
+com.example.wedding.app-jetified-annotation-experimental-1.1.0-3 C:\Users\Deepa\.gradle\caches\transforms-3\bdccc09d9987cdbfc3ed2ddea9bf3d94\transformed\jetified-annotation-experimental-1.1.0\res
+com.example.wedding.app-jetified-play-services-basement-18.3.0-4 C:\Users\Deepa\.gradle\caches\transforms-3\c738519d697b8d22527be1e515ff5b71\transformed\jetified-play-services-basement-18.3.0\res
+com.example.wedding.app-jetified-window-java-1.0.0-beta04-5 C:\Users\Deepa\.gradle\caches\transforms-3\ec3739461dba4a6cfc1504b8fe418bb0\transformed\jetified-window-java-1.0.0-beta04\res
+com.example.wedding.app-packaged_res-6 C:\Users\Deepa\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-3.1.0\android\build\intermediates\packaged_res\debug
+com.example.wedding.app-google-services-7 D:\Damage\wedding\android\app\build\generated\res\google-services\debug
+com.example.wedding.app-pngs-8 D:\Damage\wedding\android\app\build\generated\res\pngs\debug
+com.example.wedding.app-resValues-9 D:\Damage\wedding\android\app\build\generated\res\resValues\debug
+com.example.wedding.app-rs-10 D:\Damage\wedding\android\app\build\generated\res\rs\debug
+com.example.wedding.app-mergeDebugResources-11 D:\Damage\wedding\android\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir
+com.example.wedding.app-mergeDebugResources-12 D:\Damage\wedding\android\app\build\intermediates\incremental\debug\mergeDebugResources\stripped.dir
+com.example.wedding.app-merged_res-13 D:\Damage\wedding\android\app\build\intermediates\merged_res\debug
+com.example.wedding.app-debug-14 D:\Damage\wedding\android\app\src\debug\res
+com.example.wedding.app-main-15 D:\Damage\wedding\android\app\src\main\res

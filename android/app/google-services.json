@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "554088293215",
+    "project_id": "wedding-ab7f0",
+    "storage_bucket": "wedding-ab7f0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554088293215:android:cada4eb4896bdbaff8ccea",
+        "android_client_info": {
+          "package_name": "com.example.wedding"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "554088293215-pto2tods2do2tuc5e6f0vrbce52da238.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.wedding",
+            "certificate_hash": "c46e3033e9819c7185d225c852a610e042b9bef7"
+          }
+        },
+        {
+          "client_id": "554088293215-6m2s0p483i4ls2ngh4nj5anba6ipv5fg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAi2e_zgaojNypt4m6q9do5jROG8zeLoQg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "554088293215-6m2s0p483i4ls2ngh4nj5anba6ipv5fg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "554088293215-8j11aua4h6fivkgckhu13taa0n5m6cfu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.wedding"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554088293215:android:d9aa04c8581f8229f8ccea",
+        "android_client_info": {
+          "package_name": "com.example.wedding"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "554088293215-jabjc7fddarrhjps8rj9s1cl178a3t3e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.wedding",
+            "certificate_hash": "c46e3033e9819c7185d225c852a610e042b9bef7"
+          }
+        },
+        {
+          "client_id": "554088293215-6m2s0p483i4ls2ngh4nj5anba6ipv5fg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAi2e_zgaojNypt4m6q9do5jROG8zeLoQg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "554088293215-6m2s0p483i4ls2ngh4nj5anba6ipv5fg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "554088293215-8j11aua4h6fivkgckhu13taa0n5m6cfu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.wedding"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
