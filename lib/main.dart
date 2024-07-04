@@ -7,6 +7,7 @@ import 'package:wedding/firebase_options.dart';
 import 'package:wedding/screens/HomeP1.dart';
 import 'package:wedding/screens/mobile_OTP_screen.dart';
 import 'package:wedding/screens/singUp_screen.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,16 +27,23 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Auth(),
-      routes: {
-        '/SingIn': (context) => SignUpScreen(),
-        '/SingUp': (context) => SingUp(),
+    return ScreenUtilInit(
+      designSize: Size(375, 812),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          home: Auth(),
+          routes: {
+            '/SingIn': (context) => SignUpScreen(),
+            '/SingUp': (context) => const SingUp(),
+          },
+        );
       },
     );
   }

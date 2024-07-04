@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wedding/models/mobileOtp.dart'; // Replace with actual import path
 import 'package:wedding/screens/otp_verification_screen.dart'; // Replace with actual import path
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignUpScreen extends StatefulWidget {
   @override
@@ -87,84 +88,91 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 230, 238, 233),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Image.asset('assets/dadfs4.png'), // Replace with actual image path
-                SizedBox(height: 16),
-                Text(
-                  'What is your phone number?',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 16),
-                Row(
+      body: ScreenUtilInit(
+        designSize: Size(375, 812),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (context, child) {
+          return SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.all(16.w),
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    DropdownButton<String>(
-                      value: _selectedCountryCode,
-                      items: <String>['IND +91', 'USA +1', 'UK +44'].map((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                      onChanged: (String? newValue) {
-                        setState(() {
-                          _selectedCountryCode = newValue!;
-                          _validateForm(); // Revalidate when country code changes
-                        });
-                      },
+                    Image.asset('assets/dadfs4.png', width: 0.8.sw), // Replace with actual image path
+                    SizedBox(height: 16.h),
+                    Text(
+                      'What is your phone number?',
+                      style: TextStyle(
+                        fontSize: 24.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                    SizedBox(width: 8),
-                    Expanded(
-                      child: TextFormField(
-                        controller: _phoneController,
-                        keyboardType: TextInputType.phone,
-                        decoration: InputDecoration(
-                          hintText: 'Phone number',
-                          border: OutlineInputBorder(),
+                    SizedBox(height: 16.h),
+                    Row(
+                      children: <Widget>[
+                        DropdownButton<String>(
+                          value: _selectedCountryCode,
+                          items: <String>['IND +91', 'USA +1', 'UK +44'].map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value, style: TextStyle(fontSize: 14.sp)),
+                            );
+                          }).toList(),
+                          onChanged: (String? newValue) {
+                            setState(() {
+                              _selectedCountryCode = newValue!;
+                              _validateForm(); // Revalidate when country code changes
+                            });
+                          },
                         ),
-                        validator: _validatePhoneNumber,
+                        SizedBox(width: 8.w),
+                        Expanded(
+                          child: TextFormField(
+                            controller: _phoneController,
+                            keyboardType: TextInputType.phone,
+                            decoration: InputDecoration(
+                              hintText: 'Phone number',
+                              border: OutlineInputBorder(),
+                            ),
+                            validator: _validatePhoneNumber,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 16.h),
+                    Text(
+                      'By continuing, you agree to Mangalyam\'s Terms of Service and confirm that you have read Mangalyam\'s Privacy Policy. If you sign up SMS, SMS fees may apply.',
+                      style: TextStyle(fontSize: 12.sp, color: Colors.grey),
+                    ),
+                    SizedBox(height: 16.h),
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: _isSendingCode || !_isButtonEnabled ? null : _sendOtp,
+                        child: _isSendingCode
+                            ? SizedBox(
+                                width: 20.w,
+                                height: 20.h,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                                  strokeWidth: 3.w,
+                                ),
+                              )
+                            : Text('Send code'),
+                        style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(vertical: 16.h),
+                        ),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 16),
-                Text(
-                  'By continuing, you agree to Mangalyam\'s Terms of Service and confirm that you have read Mangalyam\'s Privacy Policy. If you sign up SMS, SMS fees may apply.',
-                  style: TextStyle(fontSize: 12, color: Colors.grey),
-                ),
-                SizedBox(height: 16),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: _isSendingCode || !_isButtonEnabled ? null : _sendOtp,
-                    child: _isSendingCode
-                        ? SizedBox(
-                            width: 20,
-                            height: 20,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                              strokeWidth: 3,
-                            ),
-                          )
-                        : Text('Send code'),
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(vertical: 16),
-                    ),
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
-        ),
+          );
+        },
       ),
     );
   }

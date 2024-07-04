@@ -21,8 +21,8 @@ class Buttons extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
       child: Material(
-        elevation: 3,
-        borderRadius: BorderRadius.circular(25),
+        elevation: 0,
+        borderRadius: BorderRadius.circular(50),
         color: color,
         child: InkWell(
           onTap: onPressed,
@@ -41,7 +41,7 @@ class Buttons extends StatelessWidget {
                     Text(
                       name,
                       style: const TextStyle(
-                        color: Colors.black,
+                        color: Colors.white,
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),

@@ -44,6 +44,8 @@ dependencies:
   cloud_firestore: 
   google_fonts: 
   sms_autofill: 
+  flutter_svg:
+  flutter_screenutil: ^5.0.0
 
 dev_dependencies:
   flutter_test:
@@ -79,6 +81,13 @@ flutter:
     - assets/Vector35.png
     - assets/dadfs4.png
     - assets/dadfs3.png
+    - assets/Vector 35.svg
+    - assets/Vector_39.png
+    - assets/516.png
+    - assets/google1.png
+    - assets/apple2.png
+    - assets/Join button.png
+
     
   #   - images/a_dot_ham.jpeg
 

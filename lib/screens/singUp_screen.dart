@@ -1,9 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:wedding/models/googleOauth.dart';
+import 'package:wedding/screens/HomeP1.dart';
 import 'package:wedding/screens/SuccessScreen.dart';
 import 'package:wedding/screens/mobile_OTP_screen.dart';
-import 'package:wedding/utils/buttons.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SingUp extends StatefulWidget {
   const SingUp({super.key});
@@ -14,117 +15,130 @@ class SingUp extends StatefulWidget {
 
 class _SingUpState extends State<SingUp> {
   final GoogleAuth googleAuth = GoogleAuth();
-  bool _isLoading = false;
+  bool isJoinButtonLoading = false;
+  bool isGoogleButtonLoading = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          return Stack(
-            children: [
-              Container(
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/Vector34.png"),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              Positioned(
-                top: 25,
-                left: 0,
-                right: 0,
-                child: Column(
-                  children: [
-                    Image.asset("assets/8363648 1.png"),
-                    Image.asset("assets/Header.png", height: 100, width: 200),
-                    Image.asset("assets/Vector35.png"),
-                  ],
-                ),
-              ),
-              Column(
+      backgroundColor: Colors.white,
+      body: ScreenUtilInit(
+        designSize: Size(375, 812),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (context, child) {
+          return LayoutBuilder(
+            builder: (context, constraints) {
+              return Stack(
                 children: [
-                  const Spacer(flex: 1),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 40),
-                    child: Buttons(
-                      name: 'Continue with Phone',
-                      color: const Color.fromARGB(255, 145, 45, 11),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SignUpScreen()),
-                        );
-                      },
-                      imagePath: 'assets/phone.png',
+                  Container(
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("assets/Vector34.png"),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
-                  const Text(
-                    'OR',
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+                  Positioned(
+                    top: -10.h,
+                    left: 0,
+                    right: 0,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset("assets/dadfs3.png", height: 0.2.sh),
+                        Image.asset("assets/8363648 1.png", height: 0.24.sh),
+                        Image.asset("assets/Header.png",
+                            height: 0.1.sh, fit: BoxFit.scaleDown),
+                        Transform.translate(
+                          offset: Offset(0, -50.h),
+                          child: Image.asset("assets/516.png",
+                              width: double.infinity, fit: BoxFit.scaleDown),
+                        ),
+                      ],
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 40),
-                    child: Buttons(
-                      name: 'Continue with Apple',
-                      color: const Color.fromARGB(255, 203, 207, 211),
-                      onPressed: () {},
-                      imagePath: 'assets/apple.png',
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 40),
-                    child: Buttons(
-                      name: 'Continue with Google',
-                      color: const Color.fromARGB(255, 217, 222, 226),
-                      onPressed: _isLoading ? null : _signInWithGoogle,
-                      imagePath: 'assets/Google.png',
-                      child: _isLoading
-                          ? CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(Colors.black),
-                            )
-                          : null,
-                    ),
-                  ),
-                  Image.asset(
-                    'assets/Footer.png',
-                    height: constraints.maxHeight * 0.1,
-                    width: constraints.maxWidth * 0.6,
+                  const SizedBox(height: 25),
+                  Column(
+                    children: [
+                      const Spacer(flex: 1),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 0.1.sw),
+                        child: InkWell(
+                          onTap: () {
+                            setState(() {
+                              isJoinButtonLoading = true;
+                            });
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SignUpScreen()),
+                            ).then((_) {
+                              setState(() {
+                                isJoinButtonLoading = false;
+                              });
+                            });
+                          },
+                          child: isJoinButtonLoading
+                              ? CircularProgressIndicator()
+                              : Image.asset('assets/Join button.png'),
+                        ),
+                      ),
+                      const Text(
+                        'OR',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 0.1.sw),
+                        child: Image.asset('assets/apple2.png'),
+                      ),
+                      SizedBox(height: 20.h),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 0.1.sw),
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(40),
+                          onTap: () async {
+                            setState(() {
+                              isGoogleButtonLoading = true;
+                            });
+                            User? user = await googleAuth.signInWithGoogle();
+                            setState(() {
+                              isGoogleButtonLoading = false;
+                            });
+                            if (user != null) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SuccessScreen()),
+                              );
+                              print('User signed in: ${user.displayName}');
+                            } else {
+                              print('Sign-in failed or cancelled');
+                            }
+                          },
+                          child: isGoogleButtonLoading
+                              ? CircularProgressIndicator()
+                              : Image.asset('assets/google1.png'),
+                        ),
+                      ),
+                      Image.asset(
+                        'assets/Footer.png',
+                        height: 0.1.sh,
+                        width: 0.6.sw,
+                      ),
+                    ],
                   ),
                 ],
-              ),
-            ],
+              );
+            },
           );
         },
       ),
     );
-  }
-
-  Future<void> _signInWithGoogle() async {
-    setState(() {
-      _isLoading = true;
-    });
-
-    User? user = await googleAuth.signInWithGoogle();
-
-    setState(() {
-      _isLoading = false;
-    });
-
-    if (user != null) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => SuccessScreen()),
-      );
-      print('User signed in: ${user.displayName}');
-    } else {
-      print('Sign-in failed or cancelled');
-    }
   }
 }
