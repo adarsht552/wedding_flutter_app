@@ -87,7 +87,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 230, 238, 233),
+      backgroundColor: Colors.white,
       body: ScreenUtilInit(
         designSize: Size(375, 812),
         minTextAdapt: true,
@@ -104,9 +104,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     Image.asset('assets/dadfs4.png', width: 0.8.sw), // Replace with actual image path
                     SizedBox(height: 16.h),
                     Text(
-                      'What is your phone number?',
+                      'What is your \n phone number?',
                       style: TextStyle(
-                        fontSize: 24.sp,
+                        fontSize: 35.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -135,7 +135,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             keyboardType: TextInputType.phone,
                             decoration: InputDecoration(
                               hintText: 'Phone number',
-                              border: OutlineInputBorder(),
+                              border: UnderlineInputBorder(),
                             ),
                             validator: _validatePhoneNumber,
                           ),
