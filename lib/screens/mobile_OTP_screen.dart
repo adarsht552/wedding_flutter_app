@@ -101,7 +101,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Image.asset('assets/dadfs4.png', width: 0.8.sw), // Replace with actual image path
+                    Image.asset('assets/dadfs4.png', width: 0.9.sw), // Replace with actual image path
                     SizedBox(height: 16.h),
                     Text(
                       'What is your \n phone number?',
@@ -133,7 +133,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           child: TextFormField(
                             controller: _phoneController,
                             keyboardType: TextInputType.phone,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               hintText: 'Phone number',
                               border: UnderlineInputBorder(),
                             ),

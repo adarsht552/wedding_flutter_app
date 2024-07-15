@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:wedding/models/googleOauth.dart';
-import 'package:wedding/screens/HomeP1.dart';
 import 'package:wedding/screens/SuccessScreen.dart';
 import 'package:wedding/screens/mobile_OTP_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
