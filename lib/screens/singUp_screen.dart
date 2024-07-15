@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:wedding/models/googleOauth.dart';
-import 'package:wedding/screens/HomeP1.dart';
 import 'package:wedding/screens/SuccessScreen.dart';
 import 'package:wedding/screens/mobile_OTP_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -50,7 +49,7 @@ class _SingUpState extends State<SingUp> {
                         Image.asset("assets/dadfs3.png", height: 0.2.sh),
                         Image.asset("assets/8363648 1.png", height: 0.24.sh),
                         Image.asset("assets/Header.png",
-                            height: 0.1.sh, fit: BoxFit.scaleDown),
+                            height: 0.078.sh, fit: BoxFit.scaleDown),
                         Transform.translate(
                           offset: Offset(0, -50.h),
                           child: Image.asset("assets/516.png",
@@ -85,14 +84,16 @@ class _SingUpState extends State<SingUp> {
                               : Image.asset('assets/Join button.png'),
                         ),
                       ),
+                      SizedBox(height: 20.h),
                       const Text(
                         'OR',
                         style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 20,
+                          color: Colors.black,
+                          fontSize: 15,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+                      SizedBox(height: 20.h),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 0.1.sw),
                         child: Image.asset('assets/apple2.png'),

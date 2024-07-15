@@ -14,6 +14,7 @@ class Authentication {
       },
       verificationFailed: (FirebaseAuthException e) {
         print('Verification failed: ${e.message}');
+        completer.completeError(e); // Complete with error
       },
       codeSent: (String verificationIdFromCallback, int? resendToken) {
         print('Code sent to $number');

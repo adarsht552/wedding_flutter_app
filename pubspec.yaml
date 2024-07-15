@@ -46,6 +46,7 @@ dependencies:
   sms_autofill: 
   flutter_svg:
   flutter_screenutil: ^5.0.0
+  flutter_firebase_recaptcha: ^1.0.2
 
 dev_dependencies:
   flutter_test:
@@ -87,6 +88,12 @@ flutter:
     - assets/google1.png
     - assets/apple2.png
     - assets/Join button.png
+    - assets/sign in button.png
+    - assets/Joinbutton.png
+    - assets/Cover_copy.jpg
+    - assets/Ellipse.png
+    - assets/menu.png
+    - assets/Group.png
 
     
   #   - images/a_dot_ham.jpeg
