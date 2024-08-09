@@ -6,7 +6,8 @@ class CustomSearchBar extends StatelessWidget {
   final String hintText;
   final VoidCallback onBackPressed;
 
-  CustomSearchBar({
+  const CustomSearchBar({
+    super.key,
     required this.controller,
     this.hintText = 'Search your requirements',
     required this.onBackPressed,
@@ -15,18 +16,9 @@ class CustomSearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // margin: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
-      padding: EdgeInsets.symmetric(horizontal: 6.w),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(30.r),
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 6.0,
-            offset: Offset(0, 2),
-          ),
-        ],
         border: Border.all(
           color: const Color.fromARGB(255, 226, 192, 91), // Golden border color
           width: .0,
@@ -35,7 +27,7 @@ class CustomSearchBar extends StatelessWidget {
       child: Row(
         children: [
           IconButton(
-            icon: const Icon(Icons.arrow_back_ios, size: 25),
+            icon: const Icon(Icons.arrow_back_ios, size: 18),
             onPressed: onBackPressed,
             iconSize: 24.sp,
           ),
@@ -45,13 +37,16 @@ class CustomSearchBar extends StatelessWidget {
               style: TextStyle(fontSize: 16.sp),
               decoration: InputDecoration(
                 hintText: hintText,
-                hintStyle: TextStyle(fontSize: 14.sp),
+                hintStyle: TextStyle(fontSize: 14.sp, color: Colors.black26),
                 border: InputBorder.none,
               ),
             ),
           ),
           IconButton(
-            icon: Icon(Icons.search_outlined),
+            icon: const Icon(
+              Icons.search_outlined,
+              color: Color(0xffABADBC),
+            ),
             onPressed: () {
               // Add your search functionality here
             },

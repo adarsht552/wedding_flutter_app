@@ -1,13 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:wedding/screens/HomeP1.dart';
-import 'package:wedding/screens/SuccessScreen.dart';
-import 'package:wedding/screens/mobile_OTP_screen.dart';
-import 'package:wedding/screens/singUp_screen.dart';
+import 'package:wedding/screens/first_page.dart';
+import 'package:wedding/screens/success_screen.dart';
+
 
 
 class Auth extends StatelessWidget {
-  const Auth({Key? key}) : super(key: key);
+  const Auth({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:wedding/models/googleOauth.dart';
-import 'package:wedding/screens/SuccessScreen.dart';
-import 'package:wedding/screens/mobile_OTP_screen.dart';
+import 'package:wedding/models/google_auth.dart';
+import 'package:wedding/screens/success_screen.dart';
+import 'package:wedding/screens/mobile_otp_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SingUp extends StatefulWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wedding/models/mobileOtp.dart'; // Replace with actual import path
+import 'package:wedding/models/mobile_otp.dart'; // Replace with actual import path
 import 'package:wedding/screens/otp_verification_screen.dart'; // Replace with actual import path
 
 class SignUpScreen extends StatefulWidget {

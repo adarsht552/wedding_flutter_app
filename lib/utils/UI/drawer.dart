@@ -9,9 +9,9 @@ class DrawerWidget extends StatelessWidget {
       backgroundColor: Colors.black,
       child: ListView(
         children: [
-          DrawerHeader(
+          const DrawerHeader(
             decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 226, 192, 91),
+              color: Color.fromARGB(255, 226, 192, 91),
             ),
             child: Text(
               'Drawer Header',
@@ -19,7 +19,7 @@ class DrawerWidget extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: Text(
+            title: const Text(
               'Item 1',
               style: TextStyle(color: Colors.white),
             ),
@@ -30,7 +30,7 @@ class DrawerWidget extends StatelessWidget {
             },
           ),
           ListTile(
-            title: Text(
+            title: const Text(
               'Item 2',
               style: TextStyle(color: Colors.white),
             ),
@@ -39,7 +39,7 @@ class DrawerWidget extends StatelessWidget {
             },
           ),
           ListTile(
-            title: Text(
+            title: const Text(
               'Item 3',
               style: TextStyle(color: Colors.white),
             ),

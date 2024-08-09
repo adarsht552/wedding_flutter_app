@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
-import 'package:wedding/models/mobileOtp.dart'; // Adjust this import as needed
-import 'package:wedding/screens/SuccessScreen.dart';
+import 'package:wedding/models/mobile_otp.dart'; // Adjust this import as needed
+import 'package:wedding/screens/success_screen.dart';
 
 class OTPVerificationScreen extends StatefulWidget {
   final String verificationId;

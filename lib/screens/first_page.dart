@@ -3,16 +3,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wedding/screens/singUp_screen.dart';
 
 class FirstPage extends StatelessWidget {
- // Path relative to Firebase Storage bucket
+  const FirstPage({super.key});
+
+  // Path relative to Firebase Storage bucket
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ScreenUtilInit(
-        designSize: Size(375, 812),
-        minTextAdapt: true,
-        splitScreenMode: true,
-        child: Stack(children: [
+      body: Stack(
+        children: [
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
@@ -29,7 +28,6 @@ class FirstPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                
                 Padding(
                   padding: EdgeInsets.all(16.0),
                   child: Text(
@@ -44,11 +42,12 @@ class FirstPage extends StatelessWidget {
             ),
           ),
           Positioned(
-              bottom: 0.080.sh,
-              left: 0,
-              right: 0,
-              child:
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            bottom: 0.080.sh,
+            left: 0,
+            right: 0,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
                 InkWell(
                   onTap: () {},
                   child: Image.asset(
@@ -60,13 +59,21 @@ class FirstPage extends StatelessWidget {
                   width: 10,
                 ),
                 InkWell(
-                    onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> SingUp()));
-                    },
-                    child: Image.asset('assets/sign in button.png',
-                        height: 0.060.sh)),
-              ])),
-        ]),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SingUp(),
+                      ),
+                    );
+                  },
+                  child: Image.asset('assets/sign in button.png',
+                      height: 0.060.sh),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
