@@ -100,7 +100,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Image.asset('assets/dadfs4.png',
+                Image.asset('assets/images/dadfs4.png',
                     width: 0.9.sw), // Replace with actual image path
                 SizedBox(height: 16.h),
                 Text(

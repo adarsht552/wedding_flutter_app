@@ -95,7 +95,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Image.asset('assets/dadfs4.png'), // Replace with actual image path
+                Image.asset('assets/images/dadfs4.png'), // Replace with actual image path
                 SizedBox(height: 16),
                 Text(
                   'What is your phone number?',

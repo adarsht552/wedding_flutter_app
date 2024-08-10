@@ -33,7 +33,7 @@ class _SingUpState extends State<SingUp> {
                   Container(
                     decoration: const BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage("assets/Vector34.png"),
+                        image: AssetImage("assets/images/Vector34.png"),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -46,13 +46,13 @@ class _SingUpState extends State<SingUp> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset("assets/dadfs3.png", height: 0.2.sh),
-                        Image.asset("assets/8363648 1.png", height: 0.24.sh),
-                        Image.asset("assets/Header.png",
+                        Image.asset("assets/images/dadfs3.png", height: 0.2.sh),
+                        Image.asset("assets/images/8363648 1.png", height: 0.24.sh),
+                        Image.asset("assets/images/Header.png",
                             height: 0.078.sh, fit: BoxFit.scaleDown),
                         Transform.translate(
                           offset: Offset(0, -50.h),
-                          child: Image.asset("assets/516.png",
+                          child: Image.asset("assets/images/516.png",
                               width: double.infinity, fit: BoxFit.scaleDown),
                         ),
                       ],
@@ -81,7 +81,7 @@ class _SingUpState extends State<SingUp> {
                           },
                           child: isJoinButtonLoading
                               ? CircularProgressIndicator()
-                              : Image.asset('assets/Join button.png'),
+                              : Image.asset('assets/images/Join button.png'),
                         ),
                       ),
                       SizedBox(height: 20.h),
@@ -96,7 +96,7 @@ class _SingUpState extends State<SingUp> {
                       SizedBox(height: 20.h),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 0.1.sw),
-                        child: Image.asset('assets/apple2.png'),
+                        child: Image.asset('assets/images/apple2.png'),
                       ),
                       SizedBox(height: 20.h),
                       Padding(
@@ -124,11 +124,11 @@ class _SingUpState extends State<SingUp> {
                           },
                           child: isGoogleButtonLoading
                               ? CircularProgressIndicator()
-                              : Image.asset('assets/google1.png'),
+                              : Image.asset('assets/images/google1.png'),
                         ),
                       ),
                       Image.asset(
-                        'assets/Footer.png',
+                        'assets/images/Footer.png',
                         height: 0.1.sh,
                         width: 0.6.sw,
                       ),

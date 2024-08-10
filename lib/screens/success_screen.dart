@@ -33,13 +33,13 @@ class SuccessScreen extends StatelessWidget {
                         padding: const EdgeInsets.all(10.0),
                         child: Image.asset(
                           color: const Color.fromARGB(255, 226, 192, 91),
-                          "assets/Ellipse.png",
+                          "assets/images/Ellipse.png",
                           height: 30.h,
                         ),
                       ),
                       Positioned(
                         child: Image.asset(
-                          "assets/menu.png",
+                          "assets/images/menu.png",
                           height: 25.h, // Adjust the size of the menu icon
                         ),
                       ),
@@ -61,13 +61,13 @@ class SuccessScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(10.0),
                   child: Image.asset(
                     color: const Color.fromARGB(255, 226, 192, 91),
-                    "assets/Ellipse.png",
+                    "assets/images/Ellipse.png",
                     height: 30.h,
                   ),
                 ),
                 Positioned(
                   child: Image.asset(
-                    "assets/Group.png",
+                    "assets/images/Group.png",
                     height: 25.h, // Adjust the size of the menu icon
                   ),
                 ),

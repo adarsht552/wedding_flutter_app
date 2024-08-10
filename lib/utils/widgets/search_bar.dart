@@ -43,7 +43,7 @@ class CustomSearchBar extends StatelessWidget {
                     ],
                   ),
                   child: Image.asset(
-                    "assets/menu.png",
+                    "assets/images/menu.png",
                     height: 20.h,
                   ),
                 ),

@@ -7,26 +7,24 @@ class GradientContainer extends StatelessWidget {
   final String svgPath;
   final String title;
   final String subTitle;
+  final List<Color> colors;
 
   const GradientContainer(
       {super.key,
       required this.svgPath,
       required this.title,
-      required this.subTitle});
+      required this.subTitle,
+      required this.colors});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 140.h,
+      height: 180.h,
       width: 130.w,
       decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [
-            Color(0xffB70000),
-            Color(0xff9A0000),
-            Color(0xffFFEA9E),
-          ],
-          stops: [
+        gradient: LinearGradient(
+          colors: colors,
+          stops: const [
             0.0,
             0.3,
             0.9,
@@ -48,6 +46,7 @@ class GradientContainer extends StatelessWidget {
                 .textTheme
                 .bodyMedium!
                 .copyWith(color: Colors.white),
+            textAlign: TextAlign.center,
           ),
           BlurWidget(
             child: Text(
@@ -57,6 +56,7 @@ class GradientContainer extends StatelessWidget {
                   .bodySmall!
                   .copyWith(fontFamily: 'Questial', color: Colors.white),
               textAlign: TextAlign.center,
+              maxLines: 2,
             ),
           ),
         ],

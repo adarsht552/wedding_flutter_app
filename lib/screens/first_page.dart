@@ -15,7 +15,7 @@ class FirstPage extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/Cover_copy.jpg'),
+                image: AssetImage('assets/images/Cover_copy.jpg'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -51,7 +51,7 @@ class FirstPage extends StatelessWidget {
                 InkWell(
                   onTap: () {},
                   child: Image.asset(
-                    'assets/Joinbutton.png',
+                    'assets/images/Joinbutton.png',
                     height: 0.060.sh,
                   ),
                 ),
@@ -67,7 +67,7 @@ class FirstPage extends StatelessWidget {
                       ),
                     );
                   },
-                  child: Image.asset('assets/sign in button.png',
+                  child: Image.asset('assets/images/sign in button.png',
                       height: 0.060.sh),
                 ),
               ],

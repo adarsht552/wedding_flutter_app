@@ -71,28 +71,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/Google.png
-    - assets/apple.png
-    - assets/phone.png
-    - assets/Footer.png
-    - assets/Vector34.png
-    - assets/8363648 1.png
-    - assets/Header.png
-    - assets/Vector35.png
-    - assets/dadfs4.png
-    - assets/dadfs3.png
-    - assets/Vector 35.svg
-    - assets/Vector_39.png
-    - assets/516.png
-    - assets/google1.png
-    - assets/apple2.png
-    - assets/Join button.png
-    - assets/sign in button.png
-    - assets/Joinbutton.png
-    - assets/Cover_copy.jpg
-    - assets/Ellipse.png
-    - assets/menu.png
-    - assets/Group.png
+    - assets/images/
     - assets/svg/
 
   #   - images/a_dot_ham.jpeg

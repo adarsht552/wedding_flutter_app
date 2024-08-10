@@ -28,7 +28,7 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset('assets/dadfs3.png', height: 200),
+            Image.asset('assets/images/dadfs3.png', height: 200),
             SizedBox(height: 24),
             Text(
               'Almost there',
