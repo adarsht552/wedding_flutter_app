@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:toggle_switch/toggle_switch.dart';
-import 'package:wedding/utils/UI/drawer.dart';
-import 'package:wedding/utils/UI/search_bar.dart';
+import 'package:wedding/utils/widgets/bottom_bar.dart';
+import 'package:wedding/utils/widgets/drawer.dart';
+import 'package:wedding/utils/widgets/search_bar.dart';
 
 class InviteScreen extends StatefulWidget {
   const InviteScreen({super.key});
@@ -12,6 +14,14 @@ class InviteScreen extends StatefulWidget {
 }
 
 class _InviteScreenState extends State<InviteScreen> {
+  int _currentIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
   int selectedIndex = 0;
   // int _selectedIndex = 0;
 
@@ -20,8 +30,8 @@ class _InviteScreenState extends State<InviteScreen> {
   //   super.initState();
   //   _selectedIndex = 0;
   // }
-  Widget buildContainer(
-      IconData icon, String title, int index, VoidCallback onTap) {
+  Widget inviteContainer(
+      String svgPath, String title, int index, VoidCallback onTap) {
     return GestureDetector(
       onTap: () {
         setState(() {
@@ -54,15 +64,20 @@ class _InviteScreenState extends State<InviteScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon,
-                color: selectedIndex == index ? Colors.pink : Colors.black54),
+            SvgPicture.asset(
+              svgPath,
+              colorFilter: ColorFilter.mode(
+                  selectedIndex == index ? Colors.pink : Colors.black54,
+                  BlendMode.srcIn),
+            ),
             SizedBox(height: 8.h),
             Text(
               title,
-              style: TextStyle(
-                  color: selectedIndex == index
-                      ? const Color(0xff9A2143)
-                      : Colors.black54),
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                    color: selectedIndex == index
+                        ? const Color(0xff9A2143)
+                        : Colors.black54,
+                  ),
               textAlign: TextAlign.center,
             ),
           ],
@@ -92,62 +107,7 @@ class _InviteScreenState extends State<InviteScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 12.h),
-                child: Row(
-                  children: [
-                    Builder(builder: (context) {
-                      return InkWell(
-                        onTap: () {
-                          Scaffold.of(context).openDrawer();
-                        },
-                        child: Container(
-                          padding: EdgeInsets.all(8.r),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(24),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.2),
-                                spreadRadius: 2,
-                                blurRadius: 5,
-                                offset: const Offset(2, 1),
-                              ),
-                            ],
-                          ),
-                          child: Image.asset(
-                            "assets/menu.png",
-                            height: 20.h,
-                          ),
-                        ),
-                      );
-                    }),
-                    SizedBox(width: 10.w),
-                    Expanded(
-                      child: CustomSearchBar(
-                        controller: controller,
-                        onBackPressed: () {},
-                      ),
-                    ),
-                    SizedBox(width: 10.w),
-                    Container(
-                        padding: EdgeInsets.all(10.r),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(24),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.2),
-                              spreadRadius: 2,
-                              blurRadius: 5,
-                              offset: const Offset(2, 1),
-                            ),
-                          ],
-                        ),
-                        child: const Icon(Icons.notifications_active_outlined)),
-                  ],
-                ),
-              ),
+              CustomSearchBar(controller: controller, onBackPressed: () {}),
               SizedBox(height: 10.h),
               Container(
                 height: 54.h,
@@ -164,7 +124,7 @@ class _InviteScreenState extends State<InviteScreen> {
                 child: Padding(
                   padding: EdgeInsets.all(10.0.r),
                   child: ToggleSwitch(
-                    minWidth: 150.0.w,
+                    minWidth: 160.0.w,
                     cornerRadius: 20.0.r,
                     activeBgColors: const [
                       [Color(0xff9A2143)],
@@ -178,6 +138,18 @@ class _InviteScreenState extends State<InviteScreen> {
                     labels: const [
                       'Customise your invite',
                       'Use existing invite'
+                    ],
+                    customTextStyles: [
+                      TextStyle(
+                        fontFamily: 'Inter',
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      TextStyle(
+                        fontFamily: 'Inter',
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ],
                     radiusStyle: true,
                     onToggle: (index) {
@@ -201,35 +173,38 @@ class _InviteScreenState extends State<InviteScreen> {
                     EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 16.0.h),
                 child: Row(
                   children: [
-                    buildContainer(Icons.mail, "VIDEO\nINVITE", 0, () {}),
+                    inviteContainer(
+                        "assets/svg/vid_invite.svg", "VIDEO\nINVITE", 0, () {}),
                     SizedBox(width: 10.w),
-                    buildContainer(
-                        Icons.document_scanner, "PDF\nINVITE", 1, () {}),
+                    inviteContainer(
+                        "assets/svg/pdf_invite.svg", "PDF\nINVITE", 1, () {}),
                     SizedBox(width: 10.w),
-                    buildContainer(Icons.location_on_outlined,
+                    inviteContainer("assets/svg/insta_invite.svg",
                         "3D INSTA INVITE", 2, () {}),
                     SizedBox(width: 10.w),
-                    buildContainer(Icons.mic, "VOICE\nINVITE", 3, () {}),
+                    inviteContainer("assets/svg/voice_invite.svg",
+                        "VOICE\nINVITE", 3, () {}),
                   ],
                 ),
               ),
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 12.0, vertical: 12),
+                    EdgeInsets.symmetric(horizontal: 12.0.w, vertical: 12.0.h),
                 child: Row(
                   children: [
-                    const Text(
+                    Text(
                       "Popular Themes",
-                      style: TextStyle(fontSize: 22),
+                      style: Theme.of(context).textTheme.titleLarge,
                     ),
                     const Spacer(),
                     TextButton(
                       onPressed: () {},
-                      child: const Text(
+                      child: Text(
                         "See all",
-                        style: TextStyle(
-                          color: Color(0xffD99221),
-                        ),
+                        style:
+                            Theme.of(context).textTheme.titleMedium!.copyWith(
+                                  color: const Color(0xffD99221),
+                                ),
                       ),
                     ),
                   ],
@@ -256,18 +231,19 @@ class _InviteScreenState extends State<InviteScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 12.0),
                 child: Row(
                   children: [
-                    const Text(
+                    Text(
                       "AI Generated Themes",
-                      style: TextStyle(fontSize: 22),
+                      style: Theme.of(context).textTheme.titleLarge,
                     ),
                     const Spacer(),
                     TextButton(
                       onPressed: () {},
-                      child: const Text(
+                      child: Text(
                         "See all",
-                        style: TextStyle(
-                          color: Color(0xffD99221),
-                        ),
+                        style:
+                            Theme.of(context).textTheme.titleMedium!.copyWith(
+                                  color: const Color(0xffD99221),
+                                ),
                       ),
                     ),
                   ],
@@ -294,6 +270,8 @@ class _InviteScreenState extends State<InviteScreen> {
         ),
       ),
       drawer: const DrawerWidget(),
+      bottomNavigationBar: CustomBottomNavigationBar(
+          currentIndex: _currentIndex, onTap: _onItemTapped),
     );
   }
 }

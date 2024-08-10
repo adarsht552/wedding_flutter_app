@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:wedding/utils/UI/drawer.dart';
-import 'package:wedding/utils/UI/search_bar.dart';
+import 'package:wedding/utils/widgets/drawer.dart';
+import 'package:wedding/utils/widgets/search_bar.dart';
 
 class SuccessScreen extends StatelessWidget {
   const SuccessScreen({super.key});
