@@ -16,17 +16,15 @@ class CustomBottomNavigationBar extends StatelessWidget {
     return Theme(
       data: ThemeData(
         splashColor: Colors.transparent,
-        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          selectedLabelStyle: TextStyle(
-            fontFamily: 'Lato',
-            fontSize: 14,
-            fontWeight: FontWeight.bold,
-          ),
-          unselectedLabelStyle: TextStyle(
-            fontFamily: 'Lato',
-            fontSize: 12,
-            fontWeight: FontWeight.normal,
-          ),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          selectedLabelStyle: Theme.of(context).textTheme.titleMedium!.copyWith(
+                fontFamily: 'Inter',
+                fontSize: 14,
+              ),
+          unselectedLabelStyle:
+              Theme.of(context).textTheme.titleMedium!.copyWith(
+                    fontFamily: 'Inter',
+                  ),
         ),
       ),
       child: BottomNavigationBar(
@@ -35,7 +33,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
             icon: SvgPicture.asset(
               "assets/svg/home.svg",
               colorFilter: ColorFilter.mode(
-                  currentIndex == 0 ? const Color(0xff9A2143) : Colors.grey,
+                  currentIndex == 0 ? const Color(0xff9A2143) : Colors.black87,
                   BlendMode.srcIn),
             ),
             label: 'Home',
@@ -44,7 +42,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
             icon: SvgPicture.asset(
               "assets/svg/dashboard.svg",
               colorFilter: ColorFilter.mode(
-                  currentIndex == 1 ? const Color(0xff9A2143) : Colors.grey,
+                  currentIndex == 1 ? const Color(0xff9A2143) : Colors.black87,
                   BlendMode.srcIn),
             ),
             label: 'Dashboard',
@@ -53,7 +51,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
             icon: SvgPicture.asset(
               "assets/svg/inspire.svg",
               colorFilter: ColorFilter.mode(
-                  currentIndex == 2 ? const Color(0xff9A2143) : Colors.grey,
+                  currentIndex == 2 ? const Color(0xff9A2143) : Colors.black87,
                   BlendMode.srcIn),
             ),
             label: 'Inspire',
@@ -62,7 +60,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
             icon: SvgPicture.asset(
               "assets/svg/bookings.svg",
               colorFilter: ColorFilter.mode(
-                  currentIndex == 3 ? const Color(0xff9A2143) : Colors.grey,
+                  currentIndex == 3 ? const Color(0xff9A2143) : Colors.black87,
                   BlendMode.srcIn),
             ),
             label: 'Bookings',
@@ -71,7 +69,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
             icon: SvgPicture.asset(
               "assets/svg/account.svg",
               colorFilter: ColorFilter.mode(
-                  currentIndex == 4 ? const Color(0xff9A2143) : Colors.grey,
+                  currentIndex == 4 ? const Color(0xff9A2143) : Colors.black87,
                   BlendMode.srcIn),
             ),
             label: 'Account',
@@ -81,9 +79,10 @@ class CustomBottomNavigationBar extends StatelessWidget {
         showUnselectedLabels: true,
         currentIndex: currentIndex,
         selectedItemColor: const Color(0xff9A2143),
-        unselectedItemColor: Colors.grey,
+        unselectedItemColor: Colors.black87,
         onTap: onTap,
         type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.white,
       ),
     );
   }
