@@ -68,9 +68,9 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             isVerifying
-                ? CircularProgressIndicator()
+                ? const CircularProgressIndicator()
                 : SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
@@ -94,7 +94,7 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => SuccessScreen(),
+                              builder: (context) => const SuccessScreen(),
                             ),
                           );
                         } else {

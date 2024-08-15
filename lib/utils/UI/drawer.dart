@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class DrawerWidget extends StatelessWidget {
@@ -5,50 +6,58 @@ class DrawerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      backgroundColor: Colors.black,
-      child: ListView(
-        children: [
-          DrawerHeader(
+    return Stack(
+      alignment: Alignment.topLeft,
+      children: [
+        Positioned(
+          left: 10,
+          top: 40,
+          child: Container(
+            width: 40,
+            height: 40,
             decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 226, 192, 91),
+              shape: BoxShape.circle,
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.2),
+                  spreadRadius: 1,
+                  blurRadius: 3,
+                  offset: Offset(0, 2),
+                ),
+              ],
             ),
-            child: Text(
-              'Drawer Header',
-              style: TextStyle(color: Colors.white),
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 18,
+                    height: 2,
+                    color: Colors.black,
+                    margin: EdgeInsets.symmetric(vertical: 2),
+                  ),
+                  Container(
+                    width: 18,
+                    height: 2,
+                    color: Colors.black,
+                    margin: EdgeInsets.symmetric(vertical: 2),
+                  ),
+                  Container(
+                    width: 18,
+                    height: 2,
+                    color: Colors.black,
+                    margin: EdgeInsets.symmetric(vertical: 2),
+                  ),
+                ],
+              ),
             ),
           ),
-          ListTile(
-            title: Text(
-              'Item 1',
-              style: TextStyle(color: Colors.white),
-            ),
-            onTap: () {
-              // Update the state of the app
-              // Then close the drawer
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            title: Text(
-              'Item 2',
-              style: TextStyle(color: Colors.white),
-            ),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            title: Text(
-              'Item 3',
-              style: TextStyle(color: Colors.white),
-            ),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-        ],
-      ),
+        ),
+        Drawer(
+          // Rest of your Drawer code remains the same
+        ),
+      ],
     );
   }
 }

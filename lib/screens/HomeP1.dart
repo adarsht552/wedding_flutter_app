@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wedding/screens/singUp_screen.dart';
 
 class FirstPage extends StatelessWidget {
- // Path relative to Firebase Storage bucket
+  // Path relative to Firebase Storage bucket
 
   @override
   Widget build(BuildContext context) {
@@ -22,20 +22,19 @@ class FirstPage extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 0.73.sh,
+            top: 0.75.sh,
             left: 0,
             right: 0,
-            child: const Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                
                 Padding(
                   padding: EdgeInsets.all(16.0),
                   child: Text(
                     'Create memories that last a lifetime',
                     style: TextStyle(
-                        fontSize: 28,
+                        fontSize: 28.sp,
                         fontWeight: FontWeight.bold,
                         color: Color(0xFFFFFDD0)),
                   ),
@@ -44,9 +43,9 @@ class FirstPage extends StatelessWidget {
             ),
           ),
           Positioned(
-              bottom: 0.080.sh,
+              bottom: 0.060.sh,
               left: 0,
-              right: 0,
+              right: 0.080.sw,
               child:
                   Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 InkWell(
@@ -61,7 +60,8 @@ class FirstPage extends StatelessWidget {
                 ),
                 InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> SingUp()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => SingUp()));
                     },
                     child: Image.asset('assets/sign in button.png',
                         height: 0.060.sh)),

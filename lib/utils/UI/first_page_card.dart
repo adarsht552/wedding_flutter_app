@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeCard extends StatelessWidget {
   const HomeCard({super.key});
@@ -7,8 +8,8 @@ class HomeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 180.h,
-      width: 120.w,
+      height: 160.h,
+      width: 110.w,
       decoration: BoxDecoration(
         color: Colors.pink[100],
         borderRadius: BorderRadius.circular(20),
@@ -20,11 +21,7 @@ class HomeCard extends StatelessWidget {
             top: 10,
             left: 0,
             right: 0,
-            child: Image.asset(
-              "assets/apple.png", // Replace with your actual asset
-              height: 120.h,
-              fit: BoxFit.contain,
-            ),
+            child:  Image.asset('assets/Group.png')
           ),
           // Bottom text container
           Positioned(
@@ -51,8 +48,9 @@ class HomeCard extends StatelessWidget {
               child: Center(
                 child: Text(
                   'INVITATION\nSUITE',
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.left,
                   style: TextStyle(
+                    fontFamily: GoogleFonts.questrial().fontFamily,
                     color: Colors.white,
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w600,
