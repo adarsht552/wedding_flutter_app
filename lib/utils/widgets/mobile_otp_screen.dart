@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wedding/models/mobileOtp.dart'; // Replace with actual import path
+import 'package:wedding/models/mobile_otp.dart'; // Replace with actual import path
 import 'package:wedding/screens/otp_verification_screen.dart'; // Replace with actual import path
 
 class SignUpScreen extends StatefulWidget {
@@ -95,7 +95,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Image.asset('assets/dadfs4.png'), // Replace with actual image path
+                Image.asset('assets/images/dadfs4.png'), // Replace with actual image path
                 SizedBox(height: 16),
                 Text(
                   'What is your phone number?',
