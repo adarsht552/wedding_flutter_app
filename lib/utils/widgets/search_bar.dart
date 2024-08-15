@@ -25,9 +25,7 @@ class CustomSearchBar extends StatelessWidget {
           Builder(
             builder: (context) {
               return InkWell(
-                onTap: () {
-                  Scaffold.of(context).openDrawer();
-                },
+                onTap: onBackPressed,
                 child: Container(
                   padding: EdgeInsets.all(10.r),
                   decoration: BoxDecoration(
@@ -115,7 +113,11 @@ class CustomSearchBar extends StatelessWidget {
                     ),
                   ],
                 ),
-                child: SvgPicture.asset("assets/svg/bell.svg"),
+                child: SvgPicture.asset(
+                  "assets/svg/bell.svg",
+                  colorFilter:
+                      const ColorFilter.mode(Colors.black, BlendMode.srcIn),
+                ),
               ),
               if (notificationOccurr) // Replace with condition
                 Positioned(

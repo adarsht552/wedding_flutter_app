@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wedding/utils/widgets/drawer.dart';
 import 'package:wedding/utils/widgets/gradient_container.dart';
-import 'package:wedding/utils/widgets/search_bar.dart';
+import 'package:wedding/utils/widgets/header_widget.dart';
 
 class ToolsScreen extends StatelessWidget {
   ToolsScreen({super.key});
@@ -11,39 +12,21 @@ class ToolsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const DrawerWidget(),
       body: SafeArea(
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(
             children: [
-              CustomSearchBar(
+              HeaderWidget(
                 controller: controller,
-                onBackPressed: () {},
-              ),
-              SizedBox(
-                height: 100.h,
-                child: Stack(
-                  children: [
-                    Image.asset(
-                      "assets/images/design.png",
-                      color: Colors.black,
-                    ),
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: Text(
-                        "Tools",
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleLarge!
-                            .copyWith(fontSize: 32.sp),
-                      ),
-                    ),
-                  ],
-                ),
+                onBackPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
               ),
               SizedBox(height: 30.h),
               Wrap(
-                spacing: 10.w,
+                spacing: 5.w,
                 runSpacing: 10.h,
                 children: const [
                   GradientContainer(
