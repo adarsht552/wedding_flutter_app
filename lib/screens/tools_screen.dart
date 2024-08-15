@@ -23,6 +23,7 @@ class ToolsScreen extends StatelessWidget {
                 onBackPressed: () {
                   Scaffold.of(context).openDrawer();
                 },
+                text: 'Tools',
               ),
               SizedBox(height: 30.h),
               Wrap(

@@ -5,11 +5,12 @@ import 'package:wedding/utils/widgets/search_bar.dart';
 class HeaderWidget extends StatelessWidget {
   final TextEditingController controller;
   final VoidCallback onBackPressed;
+  final String text;
 
   const HeaderWidget({
     super.key,
     required this.controller,
-    required this.onBackPressed,
+    required this.onBackPressed, required this.text,
   });
 
   @override
@@ -50,7 +51,7 @@ class HeaderWidget extends StatelessWidget {
                 left: 0,
                 right: 0,
                 child: Text(
-                  "Tools",
+                  text,
                   style: Theme.of(context).textTheme.titleLarge!.copyWith(
                         fontSize: 0.04.sh,
                       ),
