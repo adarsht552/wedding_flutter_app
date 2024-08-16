@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 import 'package:wedding/screens/invite_screen.dart';
 import 'package:wedding/utils/widgets/drawer.dart';
@@ -86,11 +87,8 @@ class NimantrakScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20.h),
-              Icon(
-                Icons.camera_front_rounded,
-                size: 65.sp,
-                color: Colors.black45,
-              ),
+              SvgPicture.asset("assets/svg/create_new.svg"),
+              SizedBox(height: 10.h),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
@@ -110,7 +108,7 @@ class NimantrakScreen extends StatelessWidget {
                       .copyWith(color: Colors.white),
                 ),
               ),
-              SizedBox(height: 10.h),
+              SizedBox(height: 20.h),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 14.0.w),
                 child: Container(

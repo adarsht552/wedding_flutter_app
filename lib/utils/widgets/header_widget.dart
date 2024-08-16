@@ -10,7 +10,8 @@ class HeaderWidget extends StatelessWidget {
   const HeaderWidget({
     super.key,
     required this.controller,
-    required this.onBackPressed, required this.text,
+    required this.onBackPressed,
+    required this.text,
   });
 
   @override
@@ -24,7 +25,7 @@ class HeaderWidget extends StatelessWidget {
             fit: StackFit.expand,
             children: [
               Image.asset('assets/images/headerbg.png',
-                  fit: BoxFit.cover, color: Colors.red),
+                  fit: BoxFit.cover, color: Colors.amber),
               Positioned(
                 top: 0.01.sh,
                 left: 0.01.sw,

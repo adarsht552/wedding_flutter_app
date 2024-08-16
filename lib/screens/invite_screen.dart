@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:toggle_switch/toggle_switch.dart';
-import 'package:wedding/utils/widgets/bottom_bar.dart';
 import 'package:wedding/utils/widgets/drawer.dart';
-import 'package:wedding/utils/widgets/search_bar.dart';
+import 'package:wedding/utils/widgets/faq_widget.dart';
+import 'package:wedding/utils/widgets/header_widget.dart';
+import 'package:wedding/utils/widgets/horizontal_container.dart';
 
 class InviteScreen extends StatefulWidget {
   const InviteScreen({super.key});
@@ -14,22 +14,8 @@ class InviteScreen extends StatefulWidget {
 }
 
 class _InviteScreenState extends State<InviteScreen> {
-  int _currentIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-  }
-
   int selectedIndex = 0;
-  // int _selectedIndex = 0;
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _selectedIndex = 0;
-  // }
   Widget inviteContainer(
       String svgPath, String title, int index, VoidCallback onTap) {
     return GestureDetector(
@@ -47,16 +33,16 @@ class _InviteScreenState extends State<InviteScreen> {
               ? const Color(0xffF4D18E)
               : Colors.transparent,
           border: Border.all(
-            color: const Color(0xffF4F4F4),
-          ),
+              color:
+                  selectedIndex == index ? Colors.transparent : Colors.black12),
           borderRadius: BorderRadius.circular(19),
           boxShadow: selectedIndex == index
               ? [
                   const BoxShadow(
-                    offset: Offset(5, 16),
+                    offset: Offset(5, 12),
                     color: Color(0xffECDDCA),
                     spreadRadius: 0,
-                    blurRadius: 20,
+                    blurRadius: 10,
                   )
                 ]
               : [],
@@ -86,87 +72,21 @@ class _InviteScreenState extends State<InviteScreen> {
     );
   }
 
-  Widget popularContainer() {
-    return Container(
-      width: 100.w,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border.all(color: Colors.grey),
-        borderRadius: BorderRadius.circular(20),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final TextEditingController controller = TextEditingController();
 
     return Scaffold(
+      drawer: const DrawerWidget(),
       backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              CustomSearchBar(controller: controller, onBackPressed: () {}),
-              SizedBox(height: 10.h),
-              Container(
-                height: 54.h,
-                decoration: BoxDecoration(
-                  color: const Color(0xffF6F5F9),
-                  border: Border.all(
-                    color: const Color(0xffE6D6B8),
-                  ),
-                  borderRadius: BorderRadius.horizontal(
-                    left: Radius.circular(32.r),
-                    right: Radius.circular(32.r),
-                  ),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(10.0.r),
-                  child: ToggleSwitch(
-                    minWidth: 160.0.w,
-                    cornerRadius: 20.0.r,
-                    activeBgColors: const [
-                      [Color(0xff9A2143)],
-                      [Color(0xff9A2143)]
-                    ],
-                    activeFgColor: Colors.white,
-                    inactiveBgColor: const Color(0xffF6F5F9),
-                    inactiveFgColor: const Color(0xff9A2143),
-                    initialLabelIndex: 0,
-                    totalSwitches: 2,
-                    labels: const [
-                      'Customise your invite',
-                      'Use existing invite'
-                    ],
-                    customTextStyles: [
-                      TextStyle(
-                        fontFamily: 'Inter',
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      TextStyle(
-                        fontFamily: 'Inter',
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ],
-                    radiusStyle: true,
-                    onToggle: (index) {
-                      //      setState(() {
-                      //   _selectedIndex = index!;
-                      // });
-                      // if(index == 1){
-                      //   Navigator.pushNamed(context, '/existinginvite').then((_) {
-                      //             setState(() {
-                      //       _selectedIndex = 0;
-                      //     });
-                      //   });
-                      // }
-                    },
-                  ),
-                ),
-              ),
+              HeaderWidget(
+                  controller: controller,
+                  onBackPressed: () {},
+                  text: 'Invites'),
               SizedBox(height: 10.h),
               Padding(
                 padding:
@@ -187,91 +107,152 @@ class _InviteScreenState extends State<InviteScreen> {
                   ],
                 ),
               ),
-              Padding(
-                padding:
-                    EdgeInsets.symmetric(horizontal: 12.0.w, vertical: 12.0.h),
-                child: Row(
-                  children: [
-                    Text(
-                      "Popular Themes",
-                      style: Theme.of(context).textTheme.titleLarge,
-                    ),
-                    const Spacer(),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        "See all",
-                        style:
-                            Theme.of(context).textTheme.titleMedium!.copyWith(
-                                  color: const Color(0xffD99221),
-                                ),
-                      ),
-                    ),
-                  ],
+              SizedBox(height: 10.h),
+              const HorizontalContainer(
+                title: "Weddings",
+                subTitle: "Traditional, Modern, Thematic",
+                svgPath: "assets/svg/design1.svg",
+                alignment: MainAxisAlignment.start,
+                colors: [
+                  Color(0xffB30000),
+                  Color(0xffFF6097),
+                ],
+                isSvgFirst: true,
+              ),
+              SizedBox(height: 10.h),
+              const HorizontalContainer(
+                title: "Pre-Weddings Events",
+                subTitle: "Engagement, Mehendi, Sangeet, Haldi",
+                svgPath: "assets/svg/design1.svg",
+                alignment: MainAxisAlignment.end,
+                colors: [
+                  Color(0xffACC9FF),
+                  Color(0xff497AF7),
+                ],
+                isSvgFirst: false,
+              ),
+              SizedBox(height: 10.h),
+              const HorizontalContainer(
+                title: "Festivals",
+                subTitle: "Ganesh Pooja, Diwali, Dussehra, etc",
+                svgPath: "assets/svg/design1.svg",
+                alignment: MainAxisAlignment.start,
+                colors: [
+                  Color(0xffBD5E11),
+                  Color(0xffE5C17E),
+                ],
+                isSvgFirst: true,
+              ),
+              SizedBox(height: 10.h),
+              const HorizontalContainer(
+                title: "Special Ocassions",
+                subTitle: "Anniversaries, Milestones, Birthdays",
+                svgPath: "assets/svg/design1.svg",
+                alignment: MainAxisAlignment.end,
+                colors: [
+                  Color(0xff2B975D),
+                  Color(0xff023D2F),
+                ],
+                isSvgFirst: false,
+              ),
+              SizedBox(height: 20.h),
+              Align(
+                alignment: Alignment.topLeft,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.0.w),
+                  child: Text(
+                    "Exclusive Deals",
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
                 ),
               ),
+              SizedBox(height: 5.h),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 4.0.w),
-                child: SizedBox(
+                padding: EdgeInsets.symmetric(horizontal: 14.0.w),
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 15.w),
                   height: 150.h,
-                  child: ListView.builder(
-                      physics: const BouncingScrollPhysics(),
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 8,
-                      itemBuilder: (context, indeex) {
-                        return Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 8.0.w),
-                          child: popularContainer(),
-                        );
-                      }),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    gradient: const LinearGradient(
+                      colors: [
+                        Color(0xffC9660F),
+                        Color(0xffFF5D39),
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    ),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Get you 30%\ndiscount now!",
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleLarge!
+                            .copyWith(color: Colors.white),
+                      ),
+                      SizedBox(height: 10.h),
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xff9A2143),
+                            foregroundColor: Colors.white),
+                        child: Text(
+                          "Order now",
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleMedium!
+                              .copyWith(color: Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               SizedBox(height: 10.h),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                child: Row(
-                  children: [
-                    Text(
-                      "AI Generated Themes",
-                      style: Theme.of(context).textTheme.titleLarge,
-                    ),
-                    const Spacer(),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        "See all",
-                        style:
-                            Theme.of(context).textTheme.titleMedium!.copyWith(
-                                  color: const Color(0xffD99221),
-                                ),
-                      ),
-                    ),
-                  ],
+              Align(
+                alignment: Alignment.topLeft,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.0.w),
+                  child: Text(
+                    "FAQs",
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 4.0.w),
-                child: SizedBox(
-                  height: 150.h,
-                  child: ListView.builder(
-                      physics: const BouncingScrollPhysics(),
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 8,
-                      itemBuilder: (context, indeex) {
-                        return Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 8.0.w),
-                          child: popularContainer(),
-                        );
-                      }),
+              FaqWidget(),
+              SizedBox(height: 20.h),
+              Text(
+                "Still stuck? We're just an email away",
+                style: Theme.of(context)
+                    .textTheme
+                    .titleLarge!
+                    .copyWith(fontSize: 18.sp),
+              ),
+              SizedBox(height: 20.h),
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    fixedSize: Size(330.w, 20.h),
+                    backgroundColor: const Color(0xff9A2143),
+                    foregroundColor: Colors.white),
+                child: Text(
+                  "Send a message",
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleMedium!
+                      .copyWith(color: Colors.white, fontSize: 16),
                 ),
               ),
+              SizedBox(height: 40.h),
             ],
           ),
         ),
       ),
-      drawer: const DrawerWidget(),
-      bottomNavigationBar: CustomBottomNavigationBar(
-          currentIndex: _currentIndex, onTap: _onItemTapped),
     );
   }
 }
