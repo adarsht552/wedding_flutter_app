@@ -54,10 +54,7 @@ class NimantrakScreen extends StatelessWidget {
                     inactiveFgColor: const Color(0xff9A2143),
                     initialLabelIndex: 0,
                     totalSwitches: 2,
-                    labels: const [
-                      'Customise your invite',
-                      'Use existing invite'
-                    ],
+                    labels: const ['Create your invite', 'Use existing invite'],
                     customTextStyles: [
                       TextStyle(
                         fontFamily: 'Inter',
@@ -101,7 +98,7 @@ class NimantrakScreen extends StatelessWidget {
                     backgroundColor: const Color(0xff9A2143),
                     foregroundColor: Colors.white),
                 child: Text(
-                  "Create New",
+                  "Create Now",
                   style: Theme.of(context)
                       .textTheme
                       .titleMedium!
@@ -113,7 +110,7 @@ class NimantrakScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 14.0.w),
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 15.w),
-                  height: 150.h,
+                  height: 140.h,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
@@ -155,14 +152,17 @@ class NimantrakScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 10.h),
+              SizedBox(height: 20.h),
               Align(
                 alignment: Alignment.topLeft,
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16.0.w),
                   child: Text(
                     "FAQs",
-                    style: Theme.of(context).textTheme.titleLarge,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headlineMedium!
+                        .copyWith(fontSize: 24.sp),
                   ),
                 ),
               ),
@@ -175,7 +175,7 @@ class NimantrakScreen extends StatelessWidget {
                     .titleLarge!
                     .copyWith(fontSize: 18.sp),
               ),
-              SizedBox(height: 20.h),
+              SizedBox(height: 10.h),
               ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(

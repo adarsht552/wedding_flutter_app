@@ -19,8 +19,8 @@ class GradientContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 130.h,
-      width: 110.w,
+      height: 125.h,
+      width: 109.w,
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: colors,
@@ -32,35 +32,38 @@ class GradientContainer extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
-        borderRadius: BorderRadius.circular(28),
+        borderRadius: BorderRadius.circular(24.r),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(height: 5.h),
+          SizedBox(height: 10.h),
           SvgPicture.asset(
             svgPath,
             height: 25.h,
             width: 25.w,
           ),
-          SizedBox(height: 2.h),
+          SizedBox(height: 5.h),
           Text(
             title,
-            style: Theme.of(context)
-                .textTheme
-                .bodyMedium!
-                .copyWith(color: Colors.white, fontSize: 12),
+            style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                color: Colors.white,
+                fontSize: 12.sp,
+                fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
-          BlurWidget(
-            child: Text(
-              subTitle,
-              style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                  fontFamily: 'Questial', color: Colors.white, fontSize: 12),
-              textAlign: TextAlign.center,
-              maxLines: 2,
-            ),
-          ),
+          // BlurWidget(
+          //   child: Text(
+          //     subTitle,
+          //     style: Theme.of(context).textTheme.bodySmall!.copyWith(
+          //         fontFamily: 'Questial',
+          //         color: Colors.white,
+          //         fontSize: 9.sp,
+          //         fontWeight: FontWeight.bold),
+          //     textAlign: TextAlign.center,
+          //     maxLines: 2,
+          //   ),
+          // ),
         ],
       ),
     );

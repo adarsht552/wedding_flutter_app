@@ -97,6 +97,18 @@ flutter:
     - family: Questrial
       fonts:
         - asset: assets/fonts/Questrial-Regular.ttf
+    - family: DMSans
+      fonts:
+        - asset: assets/fonts/DmSans_Regular.ttf
+    - family: DMSerif
+      fonts:
+        - asset: assets/fonts/DMSerif_Regular.ttf
+    - family: Lato
+      fonts:
+        - asset: assets/fonts/Lato_Regular.ttf
+    - family: Annabelle
+      fonts:
+        - asset: assets/fonts/Annabelle.ttf
           # weight: 700
   #
   # For details regarding fonts from package dependencies,

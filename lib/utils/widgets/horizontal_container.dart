@@ -23,7 +23,7 @@ class HorizontalContainer extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.0.w),
       child: Container(
-        height: 130.h,
+        height: 100.h,
         width: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -55,7 +55,7 @@ class HorizontalContainer extends StatelessWidget {
                               Theme.of(context).textTheme.bodyMedium!.copyWith(
                                     color: Colors.white,
                                     fontFamily: 'Questrial',
-                                    fontSize: 20.sp,
+                                    fontSize: 16.sp,
                                     fontWeight: FontWeight.bold,
                                   ),
                         )
@@ -67,7 +67,7 @@ class HorizontalContainer extends StatelessWidget {
                               Theme.of(context).textTheme.bodyMedium!.copyWith(
                                     color: Colors.white,
                                     fontFamily: 'Questrial',
-                                    fontSize: 20.sp,
+                                    fontSize: 16.sp,
                                     fontWeight: FontWeight.bold,
                                   ),
                         ),
@@ -83,7 +83,7 @@ class HorizontalContainer extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                         color: Colors.white,
                         fontFamily: 'Questrial',
-                        fontSize: 16),
+                        fontSize: 14),
                   ),
                 ],
               ),

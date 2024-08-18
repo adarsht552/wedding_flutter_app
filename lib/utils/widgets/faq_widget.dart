@@ -31,29 +31,40 @@ class FaqWidget extends StatelessWidget {
     return Column(
       children: faqItems.map((faqItem) {
         return Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 8.h),
+          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 3.h),
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(6),
-              border: Border.all(color: Colors.grey.shade300),
+              border: Border.all(color: Colors.grey.shade200),
             ),
             child: Theme(
               data: Theme.of(context).copyWith(
                 dividerColor: Colors.transparent,
               ),
               child: ExpansionTile(
+                childrenPadding: EdgeInsets.zero,
                 iconColor: Colors.black54,
                 tilePadding:
                     EdgeInsets.symmetric(horizontal: 16.w, vertical: 0.h),
                 textColor: Colors.black,
                 title: Text(
                   faqItem['question']!,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelMedium!
+                      .copyWith(fontSize: 16.sp, fontWeight: FontWeight.bold),
                 ),
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(16.0.r),
-                    child: Text(faqItem['answer']!),
+                    padding: EdgeInsets.all(15.0.r),
+                    child: Text(
+                      faqItem['answer']!,
+                      style: Theme.of(context)
+                          .textTheme
+                          .labelMedium!
+                          .copyWith(fontSize: 14.sp),
+                      textAlign: TextAlign.justify,
+                    ),
                   ),
                 ],
               ),

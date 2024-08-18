@@ -53,7 +53,9 @@ class _InviteScreenState extends State<InviteScreen> {
             SvgPicture.asset(
               svgPath,
               colorFilter: ColorFilter.mode(
-                  selectedIndex == index ? Colors.pink : Colors.black54,
+                  selectedIndex == index
+                      ? Colors.pink
+                      : const Color(0xff9A999E),
                   BlendMode.srcIn),
             ),
             SizedBox(height: 8.h),
@@ -171,7 +173,7 @@ class _InviteScreenState extends State<InviteScreen> {
                 padding: EdgeInsets.symmetric(horizontal: 14.0.w),
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 15.w),
-                  height: 150.h,
+                  height: 140.h,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
@@ -213,14 +215,17 @@ class _InviteScreenState extends State<InviteScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 10.h),
+              SizedBox(height: 20.h),
               Align(
                 alignment: Alignment.topLeft,
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16.0.w),
                   child: Text(
                     "FAQs",
-                    style: Theme.of(context).textTheme.titleLarge,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headlineMedium!
+                        .copyWith(fontSize: 24.sp),
                   ),
                 ),
               ),
@@ -233,7 +238,7 @@ class _InviteScreenState extends State<InviteScreen> {
                     .titleLarge!
                     .copyWith(fontSize: 18.sp),
               ),
-              SizedBox(height: 20.h),
+              SizedBox(height: 10.h),
               ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
