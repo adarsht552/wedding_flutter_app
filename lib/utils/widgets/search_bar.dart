@@ -60,39 +60,46 @@ class CustomSearchBar extends StatelessWidget {
                   width: .0,
                 ),
               ),
-              child: Row(
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back_ios, size: 18),
-                    onPressed: onBackPressed,
-                    iconSize: 24.sp,
-                  ),
-                  Expanded(
-                    child: TextField(
-                      controller: controller,
-                      style: TextStyle(fontSize: 18.sp),
-                      decoration: InputDecoration(
-                        hintText: hintText,
-                        hintStyle: Theme.of(context)
-                            .textTheme
-                            .bodyMedium!
-                            .copyWith(color: Colors.black54),
-                        border: InputBorder.none,
+              child: SizedBox(
+                height: 40.h,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.arrow_back_ios, size: 18),
+                      onPressed: onBackPressed,
+                      iconSize: 24.sp,
+                    ),
+                    Expanded(
+                      child: TextField(
+                        cursorHeight: 15.0,
+                        cursorColor: const Color(0xffD6A74F),
+                        controller: controller,
+                        style: TextStyle(fontSize: 18.sp),
+                        decoration: InputDecoration(
+                          contentPadding: EdgeInsets.only(bottom: 12.h),
+                          hintText: hintText,
+                          hintStyle: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(color: Colors.black54),
+                          border: InputBorder.none,
+                        ),
                       ),
                     ),
-                  ),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Padding(
-                      padding: EdgeInsets.only(right: 12.0.w),
-                      child: SvgPicture.asset(
-                        "assets/svg/search.svg",
-                        colorFilter: const ColorFilter.mode(
-                            Colors.black54, BlendMode.srcIn),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Padding(
+                        padding: EdgeInsets.only(right: 12.0.w),
+                        child: SvgPicture.asset(
+                          "assets/svg/search.svg",
+                          colorFilter: const ColorFilter.mode(
+                              Colors.black54, BlendMode.srcIn),
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
@@ -115,8 +122,8 @@ class CustomSearchBar extends StatelessWidget {
                 ),
                 child: SvgPicture.asset(
                   "assets/svg/bell.svg",
-                  colorFilter:
-                      const ColorFilter.mode(Colors.black, BlendMode.srcIn),
+                  colorFilter: const ColorFilter.mode(
+                      Color(0xffD6A74F), BlendMode.srcIn),
                 ),
               ),
               if (notificationOccurr) // Replace with condition

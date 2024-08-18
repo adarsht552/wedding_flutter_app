@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:wedding/utils/widgets/blur_widget.dart';
 
 class GradientContainer extends StatelessWidget {
   final String svgPath;
@@ -40,10 +39,10 @@ class GradientContainer extends StatelessWidget {
           SizedBox(height: 10.h),
           SvgPicture.asset(
             svgPath,
-            height: 25.h,
-            width: 25.w,
+            height: 35.h,
+            width: 35.w,
           ),
-          SizedBox(height: 5.h),
+          SizedBox(height: 10.h),
           Text(
             title,
             style: Theme.of(context).textTheme.bodySmall!.copyWith(

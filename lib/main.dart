@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: textTheme,
-          home: ArtistsScreen(),
+          home: const ArtistsScreen(),
           routes: {
             '/SingIn': (context) => const SignUpScreen(),
             '/SingUp': (context) => const SingUp(),

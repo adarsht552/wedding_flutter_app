@@ -23,22 +23,13 @@ class HeaderWidget extends StatelessWidget {
           height: 0.20.sh,
           width: double.infinity,
           child: Stack(
-            fit: StackFit.expand,
+            // fit: StackFit.expand,
             children: [
-              Image.asset(
-                'assets/images/Vector_34.png',
-                color: const Color(0xffD6C29B),
-                fit: BoxFit.cover,
-              ),
-              Positioned(
-                top: 0.01.sh,
-                left: 0.01.sw,
-                right: 0.01.sw,
-                child: CustomSearchBar(
-                  controller: controller,
-                  onBackPressed: () {
-                    Scaffold.of(context).openDrawer();
-                  },
+              Positioned.fill(
+                child: Image.asset(
+                  'assets/images/Vector_34.png',
+                  color: const Color(0xffD6C29B),
+                  fit: BoxFit.cover,
                 ),
               ),
               Positioned(
@@ -54,6 +45,17 @@ class HeaderWidget extends StatelessWidget {
                 ),
               ),
               Positioned(
+                top: 0.01.sh,
+                left: 0.01.sw,
+                right: 0.01.sw,
+                child: CustomSearchBar(
+                  controller: controller,
+                  onBackPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  },
+                ),
+              ),
+              Positioned(
                 top: 0.10.sh,
                 left: 0,
                 right: 0,
@@ -61,6 +63,7 @@ class HeaderWidget extends StatelessWidget {
                   text,
                   style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                         fontSize: 0.04.sh,
+                        color: const Color(0xffD6A74F),
                       ),
                   textAlign: TextAlign.center,
                 ),

@@ -12,6 +12,7 @@ class ToolsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       drawer: const DrawerWidget(),
       body: SafeArea(
         child: SingleChildScrollView(
