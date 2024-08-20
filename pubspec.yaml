@@ -47,6 +47,8 @@ dependencies:
   flutter_screenutil: ^5.0.0
   flutter_firebase_recaptcha: ^1.0.2
   toggle_switch: ^2.3.0
+  dotted_dashed_line: ^0.0.3
+  flutter_staggered_grid_view: ^0.5.0
 
 dev_dependencies:
   flutter_test:

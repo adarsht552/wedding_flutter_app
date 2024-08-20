@@ -23,7 +23,6 @@ class HeaderWidget extends StatelessWidget {
           height: 0.20.sh,
           width: double.infinity,
           child: Stack(
-            // fit: StackFit.expand,
             children: [
               Positioned.fill(
                 child: Image.asset(

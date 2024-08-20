@@ -88,7 +88,7 @@ class _ArtistsScreenState extends State<ArtistsScreen> {
       "colors": [const Color(0xff27ae60), const Color(0xff2ecc71)],
     },
     {
-      "svgPath": "assets/svg/calligrapher.svg",
+      "svgPath": "assets/svg/caligrapher.svg",
       "title": "Calligrapher",
       "colors": [const Color(0xff8e44ad), const Color(0xff9b59b6)],
     },
