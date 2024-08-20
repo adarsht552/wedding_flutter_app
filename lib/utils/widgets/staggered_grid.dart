@@ -11,7 +11,7 @@ class StaggeredGridViewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MasonryGridView.count(
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       crossAxisCount: 2,
       mainAxisSpacing: 4,
       crossAxisSpacing: 4,
@@ -103,7 +103,8 @@ class GridItemWidget extends StatelessWidget {
                           height: 23,
                           width: 70,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: const Color.fromARGB(0, 101, 99, 99),
+                            border: Border.all(color: Colors.white),
                             borderRadius: BorderRadius.horizontal(
                               left: Radius.circular(12.r),
                               right: Radius.circular(12.r),
@@ -114,7 +115,7 @@ class GridItemWidget extends StatelessWidget {
                               chip,
                               style: TextStyle(
                                 fontSize: 10.sp,
-                                color: Colors.black,
+                                color: Colors.white,
                               ),
                             ),
                           ),

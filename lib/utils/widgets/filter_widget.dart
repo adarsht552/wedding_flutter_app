@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wedding/utils/widgets/filter_screen.dart';
 
 class FilterWidget extends StatelessWidget {
   const FilterWidget({super.key});
@@ -82,16 +83,21 @@ class FilterWidget extends StatelessWidget {
                   ),
                 ),
                 SizedBox(width: 4.w),
-                Container(
-                  padding: EdgeInsets.all(8.r),
-                  decoration: BoxDecoration(
-                    color: const Color(0xffDF005E),
-                    borderRadius: BorderRadiusDirectional.circular(12),
-                  ),
-                  child: Icon(
-                    Icons.tune,
-                    color: Colors.white,
-                    size: 20.r,
+                GestureDetector(
+                  onTap: () {
+                    _showBottomSheet(context);
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(8.r),
+                    decoration: BoxDecoration(
+                      color: const Color(0xffDF005E),
+                      borderRadius: BorderRadiusDirectional.circular(12),
+                    ),
+                    child: Icon(
+                      Icons.tune,
+                      color: Colors.white,
+                      size: 20.r,
+                    ),
                   ),
                 ),
               ],
@@ -101,4 +107,17 @@ class FilterWidget extends StatelessWidget {
       ),
     );
   }
+}
+
+void _showBottomSheet(BuildContext context) {
+  showModalBottomSheet(
+    backgroundColor: Colors.white,
+    showDragHandle: true,
+    isScrollControlled: true,
+    barrierColor: Colors.black87,
+    context: context,
+    builder: (context) {
+      return const CustomBottomSheet();
+    },
+  );
 }
