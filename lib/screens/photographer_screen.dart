@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wedding/screens/photographer_detail_screen.dart';
 import 'package:wedding/models/photoartists_item.dart';
-import 'package:wedding/models/photographer_list.dart';
+import 'package:wedding/models/photographer_detail_screen_data.dart';
 import 'package:wedding/utils/widgets/filter_widget.dart';
 import 'package:wedding/utils/widgets/services_header.dart';
 import 'package:dotted_dashed_line/dotted_dashed_line.dart';
@@ -75,10 +76,9 @@ class PhotographerScreen extends StatelessWidget {
                   itemCount: photographers.length,
                   itemBuilder: (context, index) {
                     return photographersContainer(
-                        title: photographers[index]['title'],
-                        name: photographers[index]['name'],
-                        avatarUrl: photographers[index]['avatar'],
-                        rating: photographers[index]['rating']);
+                      context: context,
+                      photographer: photographers[index],
+                    );
                   },
                 ),
               ),
@@ -133,54 +133,67 @@ Widget buildHorizontalContainer(Color color) {
 }
 
 Widget photographersContainer({
-  required String title,
-  required String name,
-  required String avatarUrl,
-  required int rating,
+  required BuildContext context,
+  required Map<String, dynamic> photographer,
 }) {
   return Padding(
     padding: EdgeInsets.all(8.0.r),
-    child: Container(
-      width: 170.w,
-      decoration: BoxDecoration(
-        color: const Color(0xffDFE6ED),
-        borderRadius: BorderRadius.circular(10.r),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          CircleAvatar(
-            radius: 40.r,
-            backgroundImage: NetworkImage(avatarUrl),
-          ),
-          SizedBox(height: 10.h),
-          Text(
-            title,
-            style: TextStyle(
-              fontSize: 18.sp,
-              fontWeight: FontWeight.bold,
+    child: InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => PhotographerDetailsScreen(
+              photographer: photographer,
             ),
           ),
-          SizedBox(height: 10.h),
-          Text(
-            name,
-            style: TextStyle(
-              fontSize: 16.sp,
+        );
+      },
+      child: Container(
+        width: 170.w,
+        decoration: BoxDecoration(
+          color: const Color(0xffDFE6ED),
+          borderRadius: BorderRadius.circular(10.r),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              radius: 40.r,
+              backgroundImage: NetworkImage(
+                  photographer['avatar'] ?? 'https://via.placeholder.com/80'),
             ),
-          ),
-          SizedBox(height: 5.h),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(
-              5,
-              (starIndex) => Icon(
-                Icons.star,
-                color: starIndex < rating ? Colors.amber : Colors.grey,
-                size: 20.r,
+            SizedBox(height: 10.h),
+            Text(
+              photographer['title'] ?? 'Untitled',
+              style: TextStyle(
+                fontSize: 18.sp,
+                fontWeight: FontWeight.bold,
               ),
             ),
-          ),
-        ],
+            SizedBox(height: 10.h),
+            Text(
+              photographer['name'] ?? 'Unknown',
+              style: TextStyle(
+                fontSize: 16.sp,
+              ),
+            ),
+            SizedBox(height: 5.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                5,
+                (starIndex) => Icon(
+                  Icons.star,
+                  color: starIndex < (photographer['rating'] as int? ?? 0)
+                      ? Colors.amber
+                      : Colors.grey,
+                  size: 20.r,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     ),
   );

@@ -25,6 +25,7 @@ final ThemeData textTheme = ThemeData(
     displayMedium: TextStyle(
       fontFamily: 'DMSans',
     ),
+  
     headlineMedium: TextStyle(
       fontFamily: 'DMSerif',
     ),

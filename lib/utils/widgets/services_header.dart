@@ -31,7 +31,7 @@ class ServicesHeader extends StatelessWidget {
               Positioned.fill(
                 child: Image.asset(
                   'assets/images/Vector_34.png',
-                  color: const Color.fromARGB(255, 248, 170, 184),
+                  color: const Color.fromARGB(255, 241, 181, 192),
                   fit: BoxFit.cover,
                 ),
               ),
