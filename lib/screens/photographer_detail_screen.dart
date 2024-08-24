@@ -13,7 +13,8 @@ class PhotographerDetailsScreen extends StatefulWidget {
   });
 
   @override
-  PhotographerDetailsScreenState createState() => PhotographerDetailsScreenState();
+  PhotographerDetailsScreenState createState() =>
+      PhotographerDetailsScreenState();
 }
 
 class PhotographerDetailsScreenState extends State<PhotographerDetailsScreen> {
@@ -347,16 +348,17 @@ class PhotographerDetailsScreenState extends State<PhotographerDetailsScreen> {
                               height: 70,
                               width: 90,
                               decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(18),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.3),
-                                      spreadRadius: 2,
-                                      blurRadius: 5,
-                                      offset: const Offset(0, 3),
-                                    )
-                                  ]),
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(18),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey.withOpacity(0.3),
+                                    spreadRadius: 2,
+                                    blurRadius: 5,
+                                    offset: const Offset(0, 3),
+                                  ),
+                                ],
+                              ),
                               child: Row(
                                 children: [
                                   Column(
