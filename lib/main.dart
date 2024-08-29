@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:wedding/firebase_options.dart';
 import 'package:wedding/screens/mobile_otp_screen.dart';
-import 'package:wedding/screens/reservation_screen.dart';
 import 'package:wedding/screens/singUp_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wedding/screens/wedding_invite_screen.dart';
 import 'package:wedding/utils/theme/text_theme.dart';
 
 void main() async {
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: textTheme,
-          home: const ReservationScreen(),
+          home: WeddingInviteScreen(),
           routes: {
             '/SingIn': (context) => const SignUpScreen(),
             '/SingUp': (context) => const SingUp(),

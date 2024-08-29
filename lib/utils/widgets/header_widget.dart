@@ -55,7 +55,7 @@ class HeaderWidget extends StatelessWidget {
                 ),
               ),
               Positioned(
-                top: 0.10.sh,
+                top: 0.08.sh,
                 left: 0,
                 right: 0,
                 child: Text(
