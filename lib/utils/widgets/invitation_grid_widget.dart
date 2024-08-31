@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wedding/models/invitation_model.dart';
+import 'package:wedding/screens/selected_invite.dart';
 
 class InvitationGrid extends StatelessWidget {
   final List<InvitationModel> invitations;
@@ -17,7 +18,7 @@ class InvitationGrid extends StatelessWidget {
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         childAspectRatio: 0.40,
-        crossAxisSpacing: 15.w,
+        crossAxisSpacing: 12.w,
       ),
       itemBuilder: (context, index) {
         return InvitationCard(invitation: invitations[index]);
@@ -39,7 +40,7 @@ class InvitationCard extends StatelessWidget {
         Stack(
           children: [
             Padding(
-              padding: EdgeInsets.only(top: 8.0.h, left: 2.0.w),
+              padding: EdgeInsets.only(top: 8.0.h, left: 2.w),
               child: SizedBox(
                 height: 240.h,
                 width: double.infinity,
@@ -52,10 +53,12 @@ class InvitationCard extends StatelessWidget {
                 ),
               ),
             ),
-            SvgPicture.asset(
-              'assets/svg/frame.svg',
+            SizedBox(
               height: 255.h,
-              width: 180.w,
+              width: double.infinity,
+              child: SvgPicture.asset(
+                'assets/svg/frame.svg',
+              ),
             ),
           ],
         ),
@@ -101,7 +104,7 @@ class InvitationCard extends StatelessWidget {
         ),
         SizedBox(height: 8.h),
         Text(
-          invitation.location,
+          invitation.title,
           style: const TextStyle(fontWeight: FontWeight.bold),
           textAlign: TextAlign.center,
         ),
@@ -109,12 +112,12 @@ class InvitationCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              '₹${invitation.price.toStringAsFixed(0)}',
+              '₹${invitation.price}',
               style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             SizedBox(width: 8.w),
             Text(
-              '₹${invitation.originalPrice.toStringAsFixed(0)}',
+              '₹${invitation.originalPrice}',
               style: const TextStyle(
                 decoration: TextDecoration.lineThrough,
                 color: Colors.grey,
@@ -125,7 +128,13 @@ class InvitationCard extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.0.w),
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          SelectedInvite(invitation: invitation)));
+            },
             style: ElevatedButton.styleFrom(
               side: const BorderSide(color: Colors.black),
               elevation: 0.0,
