@@ -61,7 +61,7 @@ class HeaderWidget extends StatelessWidget {
                 child: Text(
                   text,
                   style: Theme.of(context).textTheme.headlineMedium!.copyWith(
-                        fontSize: 0.04.sh,
+                        fontSize: 32.sp,
                         color: const Color(0xffD6A74F),
                       ),
                   textAlign: TextAlign.center,
