@@ -22,5 +22,18 @@ final ThemeData textTheme = ThemeData(
         fontFamily: 'Questrial',
         fontSize: 14,
         fontWeight: FontWeight.w500), // Questrial semi bold
+    displayMedium: TextStyle(
+      fontFamily: 'DMSans',
+    ),
+
+    headlineMedium: TextStyle(
+      fontFamily: 'DMSerif',
+    ),
+    labelMedium: TextStyle(
+      fontFamily: 'Lato',
+    ),
+    labelLarge: TextStyle(
+      fontFamily: 'Annabelle',
+    ),
   ),
 );

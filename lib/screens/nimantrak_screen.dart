@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 import 'package:wedding/screens/invite_screen.dart';
 import 'package:wedding/utils/widgets/drawer.dart';
@@ -53,10 +54,7 @@ class NimantrakScreen extends StatelessWidget {
                     inactiveFgColor: const Color(0xff9A2143),
                     initialLabelIndex: 0,
                     totalSwitches: 2,
-                    labels: const [
-                      'Customise your invite',
-                      'Use existing invite'
-                    ],
+                    labels: const ['Create your invite', 'Use existing invite'],
                     customTextStyles: [
                       TextStyle(
                         fontFamily: 'Inter',
@@ -86,11 +84,8 @@ class NimantrakScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20.h),
-              Icon(
-                Icons.camera_front_rounded,
-                size: 65.sp,
-                color: Colors.black45,
-              ),
+              SvgPicture.asset("assets/svg/create_new.svg"),
+              SizedBox(height: 10.h),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
@@ -103,19 +98,19 @@ class NimantrakScreen extends StatelessWidget {
                     backgroundColor: const Color(0xff9A2143),
                     foregroundColor: Colors.white),
                 child: Text(
-                  "Create New",
+                  "Create Now",
                   style: Theme.of(context)
                       .textTheme
                       .titleMedium!
                       .copyWith(color: Colors.white),
                 ),
               ),
-              SizedBox(height: 10.h),
+              SizedBox(height: 20.h),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 14.0.w),
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 15.w),
-                  height: 150.h,
+                  height: 140.h,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
@@ -157,14 +152,17 @@ class NimantrakScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 10.h),
+              SizedBox(height: 20.h),
               Align(
                 alignment: Alignment.topLeft,
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16.0.w),
                   child: Text(
                     "FAQs",
-                    style: Theme.of(context).textTheme.titleLarge,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headlineMedium!
+                        .copyWith(fontSize: 24.sp),
                   ),
                 ),
               ),
@@ -177,7 +175,7 @@ class NimantrakScreen extends StatelessWidget {
                     .titleLarge!
                     .copyWith(fontSize: 18.sp),
               ),
-              SizedBox(height: 20.h),
+              SizedBox(height: 10.h),
               ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(

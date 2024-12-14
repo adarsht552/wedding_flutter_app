@@ -12,6 +12,7 @@ class ToolsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       drawer: const DrawerWidget(),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -27,7 +28,7 @@ class ToolsScreen extends StatelessWidget {
               ),
               SizedBox(height: 30.h),
               Wrap(
-                spacing: 5.w,
+                spacing: 8.w,
                 runSpacing: 10.h,
                 children: const [
                   GradientContainer(
@@ -42,7 +43,7 @@ class ToolsScreen extends StatelessWidget {
                   ),
                   GradientContainer(
                     svgPath: "assets/svg/calc.svg",
-                    title: "BUDGET CALCULATOR",
+                    title: "BUDGET\nCALCULATOR",
                     subTitle: "PLAN YOUR DREAM WEDDING BUDGET",
                     colors: [
                       Color(0xff8D54D7),

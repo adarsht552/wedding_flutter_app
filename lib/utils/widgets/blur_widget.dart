@@ -18,13 +18,15 @@ class BlurWidget extends StatelessWidget {
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaY: 20, sigmaX: 20),
           child: Container(
+              height: 36.h,
+              width: 97.w,
               padding: EdgeInsets.all(6.r),
               decoration: BoxDecoration(
                 border: Border.all(
                   width: 1.4,
                   color: const Color.fromARGB(255, 226, 192, 91),
                 ),
-                borderRadius: BorderRadius.circular(22),
+                borderRadius: BorderRadius.circular(32.r),
                 color: Colors.black12,
               ),
               child: child),

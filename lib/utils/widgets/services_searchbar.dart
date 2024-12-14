@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class CustomSearchBar extends StatelessWidget {
+class ServicesSearchbar extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;
   final VoidCallback onBackPressed;
   final bool notificationOccurr;
 
-  const CustomSearchBar({
+  const ServicesSearchbar({
     super.key,
     required this.controller,
     this.hintText = 'Search your requirements',
@@ -55,8 +55,7 @@ class CustomSearchBar extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(30.r),
                 border: Border.all(
-                  color: const Color.fromARGB(
-                      255, 226, 192, 91), // Golden border color
+                  color: const Color(0xffFF859B),
                   width: .0,
                 ),
               ),
@@ -123,7 +122,7 @@ class CustomSearchBar extends StatelessWidget {
                 child: SvgPicture.asset(
                   "assets/svg/bell.svg",
                   colorFilter: const ColorFilter.mode(
-                      Color(0xffD6A74F), BlendMode.srcIn),
+                      Color(0xffFF859B), BlendMode.srcIn),
                 ),
               ),
               if (notificationOccurr) // Replace with condition
@@ -137,7 +136,7 @@ class CustomSearchBar extends StatelessWidget {
                       color: Colors.transparent,
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: Colors.red,
+                        color: const Color(0xffD6A74F),
                         width: 3.r,
                       ),
                     ),
